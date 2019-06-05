@@ -47,18 +47,20 @@ public class TestController {
         int iStart = 0;//Начало искомой подстроки
         int maxLength = 1; //Длинна подстроки
 
-        int i0 = 0;
-        int i1 = 0;
+        int i0 = 0;//Начало текущей подстроки
+        int i1 = 0;//Окончание текущей подстроки
         while(++i1 < n){
-            final char c = chars[i1];
+            final char c = chars[i1];//Тукущий символ
             for(int i = i0; i < i1; i++){
+                //Если текущий символ совпал с одним из символов подстроки
                 if(c == chars[i]){
-                    final int curentLength = i1 - i0;
+                    final int curentLength = i1 - i0;//Длинна найденной подстроки
                     if(maxLength < curentLength){
                         maxLength = curentLength;
                         iStart = i0;
                     }
-                    i0 = i + 1;
+                    i0 = i + 1;//Начинаем новую подстроку с символа слудующего за первым вхождением текущего символа
+                    break;
                 }
             }
         }
